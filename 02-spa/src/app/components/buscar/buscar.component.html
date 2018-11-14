@@ -1,0 +1,33 @@
+<header class="animated fadeIn fast">
+    <h1>Héroes</h1>
+</header>
+<hr>
+
+<div class="row animated fadeIn">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert" *ngIf="list.length == 0">
+            No existen resultados para "<i>{{ term }}</i>".
+        </div>
+        <div class="alert alert-info" role="alert" *ngIf="list.length > 0">
+            <div *ngIf="term.length == 0">
+             Total de héroes: {{ list.length }}.
+            </div>
+            <div *ngIf="term.length > 0">
+             {{ list.length }} héroes contienen "<i>{{ term }}</i>".                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card-columns animated fadeIn">
+    <div class="card" *ngFor="let heroe of list; let i = index">
+         <img class="card-img-top" [src]="heroe.img" [alt]="heroe.nombre" [title]="heroe.nombre">
+        <div class="card-body">
+            <h5 class="card-title">{{ heroe.nombre }}</h5>
+            <p class="card-text">{{ heroe.bio }}</p>
+            <p class="card-text"><small class="text-muted">{{ heroe.aparicion }}</small></p>
+            <button (click)="verHeroe(i)" type="button" class="btn btn-outline-primary btn-block">Ver más</button>
+        </div>
+    </div>
+
+</div>
