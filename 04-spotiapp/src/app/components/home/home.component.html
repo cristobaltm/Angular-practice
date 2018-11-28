@@ -1,0 +1,17 @@
+<div class="card-columns">
+
+    <div *ngFor="let song of new_songs" class="card">
+        <a [href]="song.external_urls.spotify" target="_blank">
+            <img class="card-img-top" [src]="song.images[0].url" alt="{{ song.name }}" title="{{ song.name }}">
+        </a>
+        <div class="card-body">
+            <h5 class="card-title">{{ song.name }}</h5>
+            <p class="card-text">
+                <a *ngFor="let artist of song.artists" href="{{ artist.external_urls.spotify }}" target="_blank">
+                    <span class="badge badge-pill badge-primary">{{ artist.name }}</span>
+                </a>
+            </p>
+        </div>
+    </div>
+
+</div>
